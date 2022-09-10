@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>修改页面</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <th>修改员工信息</th>
+    </tr>
+    <tr>
+        <th>员工号</th>
+        <th>员工姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>邮箱</th>
+        <th>部门号</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <form th:action="@{/employee}" method="post">
+            <input type="hidden" name="_method" value="put">
+            <th><input type="text" name="eid" th:value="${employee.eid}"/></th>
+            <th><input type="text" name="empName" th:value="${employee.empName}"/></th>
+            <th><input type="text" name="age" th:value="${employee.age}"  style="width: 40px"/></th>
+            <th><input type="text" name="sex" th:value="${employee.sex}"  style="width: 40px"/></th>
+            <th><input type="text" name="email" th:value="${employee.email}"/></th>
+            <th><input type="text" name="did" th:value="${employee.did}"style="width: 40px /></th>
+            <th><input type="submit" value="确认修改"></th>
+        </form>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyf.ssm.mapper.EmployeeMapper">
+
+    <!--List<Employee> getAllEmployee();-->
+    <select id="getAllEmployee" resultType="Employee">
+        select * from t_emp
+    </select>
+
+    <!--Integer addEmployee(Employee employee);-->
+    <insert id="addEmployee" parameterType="com.xyf.ssm.pojo.Employee">
+        insert into t_emp values(null,#{empName},#{age},#{sex},#{email},null)
+    </insert>
+
+    <!--void deleteEmployee((@Param("eid") Integer eid);-->
+    <delete id="deleteEmployee" >
+        delete from t_emp where eid = #{eid}
+    </delete>
+
+    <!--Employee getEmployeeById(@Param("eid") Integer eid);-->
+    <select id="getEmployeeById" resultType="com.xyf.ssm.pojo.Employee">
+        select * from t_emp where eid = #{eid}
+    </select>
+
+    <!--void updateEmployee(@Param("emp") Employee employee);-->
+    <update id="updateEmployee" parameterType="com.xyf.ssm.pojo.Employee">
+        update t_emp
+        set emp_name = #{empName},
+            age = #{age},
+            sex = #{sex},
+            email = #{email},
+            did = #{did}
+        where eid = #{eid}
+    </update>
+
+
+</mapper>
